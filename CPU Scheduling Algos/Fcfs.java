@@ -23,8 +23,10 @@ class Fcfs{
   
     public static void main(String args[]){
         Scanner scan = new Scanner(System.in);
+	System.out.println("Enter no. of processes");
         int n = scan.nextInt();
         Map<String, Integer[]> map = new HashMap<>();
+	System.out.println("PID AT BT");
         for(int i=0;i<n;i++){
             String temp = scan.next();
             Integer[] val = new Integer[2];

@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class RoundRobin { 
 	static void findWaitingTime(String pid[], int bt[], int quantum) { 
 		int rem_bt[] = new int[pid.length]; 
+		int count=0;
 		for (int i = 0 ; i < pid.length ; i++) 
             rem_bt[i] = bt[i]; 
         int t = 0;
@@ -23,11 +24,14 @@ public class RoundRobin {
                     done = true;
                     break;
                 }
+                count+=rem_bt[i];
                 System.out.println(pid[i]+ " "+rem_bt[i]+" "+t); 
 			} 
 			if (done==true) 
 			    break; 
 		} 
+		System.out.println("Total waiting time= "+count);
+		System.out.println("Average waiting time= "+(float)count/pid.length);
 	} 
 	
 	public static void main(String[] args) { 
@@ -39,7 +43,7 @@ public class RoundRobin {
             pid[i] = scan.next();
             bt[i] = scan.nextInt();
         }
-		int quantum = 2; 
+		int quantum = 10; 
 		findWaitingTime(pid, bt, quantum); 
 	} 
 } 
